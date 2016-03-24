@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="description" content=" " />
+		<meta name="keywords" content=" " />
+		<meta name="viewport" content="user-scalable=no, initial-scale = 1, minimum-scale = 1, maximum-scale = 1, width=device-width">
+		<title>Unö Bold Color picker Specimen</title>
+		<link rel="icon" type="image/png" href=" " />
+		<link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+	</head>
+	<body>
+		<div class="picker rgb"></div>
+		<div class="picker xrgb"></div>
+		<div class="picker yrgb"></div>
+		<div class="picker hue"></div>
+		<div class="picker bs"></div>
+
+		<div class="typevalues" style="position: absolute; top: 7px; left: 32px; z-index: 99999;">
+			<input class="rinput" type="text" placeholder="RED" maxlength="1">
+			<input class="ginput" type="text" placeholder="GREEN" maxlength="1">
+			<input class="binput" type="text" placeholder="BLUE" maxlength="1">
+		</div>
+
+		<div class="infosbar top-bar">
+			<div class="infos">
+				<span class="reload"><a href="#">Reload</a></span><span class="values"></span>
+			</div>
+		</div>
+		<div class="container">
+			<div class="bg">
+				<div class="markers top">
+					<div class="marker white" style="left:0"></div>
+					<div class="marker white" style="left:15%"></div>
+					<div class="marker white" style="left:30%"></div>
+					<div class="marker white" style="left:50%"></div>
+					<div class="marker white" style="left:70%"></div>
+					<div class="marker white" style="left:85%"></div>
+					<div class="marker white" style="right:-4px"></div>
+				</div>
+				<div class="markers center">
+					<div class="marker red" style="left:0"></div>
+					<div class="marker yellow" style="left:15%"></div>
+					<div class="marker green" style="left:30%"></div>
+					<div class="marker cyan" style="left:50%"></div>
+					<div class="marker blue" style="left:70%"></div>
+					<div class="marker purple" style="left:85%"></div>
+					<div class="marker red" style="right:-4px"></div>
+				</div>
+				<div class="markers bottom">
+					<div class="marker black" style="left:0"></div>
+					<div class="marker black" style="left:15%"></div>
+					<div class="marker black" style="left:30%"></div>
+					<div class="marker black" style="left:50%"></div>
+					<div class="marker black" style="left:70%"></div>
+					<div class="marker black" style="left:85%"></div>
+					<div class="marker black" style="right:-4px"></div>
+				</div>
+				<div class="rvalue acsii"></div>
+				<div class="gvalue acsii"></div>
+				<div class="bvalue acsii"></div>
+			</div>
+		</div>
+		<div class="infosbar bottom-bar">
+			<div class="infos">
+				<a class="download" href="#">Unö bold</a>
+				<span class="instructions">move above to convert background’s each r,g,b value into corresponding acsii table character value.</span>
+				<a class="about" href="#">More about the font</a>
+			</div>
+		</div>		
+	</body>
+	<script type="text/javascript" src="scripts/jquery.js"></script>
+	<script type="text/javascript">
+		var x, y, w, h, xpercent, ypercent, r, g, b, xr, xg, xb, yr, yg, yb, saturation, brightness, $bg = $('.bg'), $acsii = $('.acsii');
+
+		$(window).resize(function() {
+			w = $(window).width()-64;
+			h = $(window).height()-64;
+			$bg.height(h);
+			$acsii.width(parseInt(w/4)).height(parseInt(w/5)).css({'font-size': parseInt(w/5), 'top': parseInt((h-$acsii.height())/2.4)});
+			$('.rvalue').css('left', parseInt(w/12));
+			$('.gvalue').css('left', parseInt(w/2.67));
+			$('.bvalue').css('left', parseInt(w/1.49));
+		}).resize();
+
+		$bg.mouseenter(function() {
+			$('.picker').add('.markers').stop().fadeIn(200);
+			$('.infosbar').stop().fadeOut(200);
+		}).mouseleave(function() {
+			$('.picker').add('.markers').stop().fadeOut(200);
+			$('.infosbar').stop().fadeIn(200);
+		}).mousedown(function() { $(this).trigger('mouseleave'); }).mouseup(function() { $(this).trigger('mouseenter'); });
+
+		function bg() {
+			$bg.css('background-color','rgb('+r+','+g+','+b+')');
+		}
+		function values() {
+			$('.rvalue').html('&#'+r+';<span class="htmlvalue" style="border-color:rgb('+r+',0,0)">HTML = &amp;#'+r+';</span>');
+			$('.gvalue').html('&#'+g+';<span class="htmlvalue" style="border-color:rgb(0,'+g+',0)">HTML = &amp;#'+g+';</span>');
+			$('.bvalue').html('&#'+b+';<span class="htmlvalue" style="border-color:rgb(0,0,'+b+')">HTML = &amp;#'+b+';</span>');
+			$('.values').html('R:'+r+'<br>G:'+g+'<br>B:'+b);
+		}
+
+		function init() {
+			r = Math.floor((Math.random()*255)+1);
+			g = Math.floor((Math.random()*255)+1);
+			b = Math.floor((Math.random()*255)+1);
+			if (r==0) { r = 1 }
+			bg();
+			values();
+			if (r<200 && r>=g && r-g<51 && b<200 || r<200 && r>=b && r-b<51 && b<200 || g<200 && g>=r && g-r<51 && b<200 || g<200 && g>=b && g-b<51 && r<200 || b<200 && b>=r && b-r<51 && g<200 || b<200 && b>=g && b-g<51 && r<200) {
+				$acsii.addClass('acsiiwhite');
+			} else {
+				$acsii.removeClass('acsiiwhite');
+			}
+		}
+		init();
+		$('.reload a').click(function() { init(); return false; });
+
+		$('input').on('keyup', function (e) {
+			/*
+			var inputs = document.getElementsByClassName("typevalues")[0];
+			inputs.onkeyup = function(e) {
+				var target = e.srcElement;
+				var maxLength = parseInt(target.attributes["maxlength"].value, 10);
+				var myLength = target.value.length;
+				if (myLength >= maxLength) {
+					var next = target;
+					while (next = next.nextElementSibling) {
+						if (next == null)
+							break;
+						if (next.tagName.toLowerCase() == "input") {
+							next.focus();
+							break;
+						}
+					}
+				}
+			}
+			*/
+			rinputVal = $('.rinput').val()
+			ginputVal = $('.ginput').val()
+			binputVal = $('.binput').val()
+
+			if (rinputVal.charCodeAt(0)>=0) { r = rinputVal.charCodeAt(0); }
+
+			if (ginputVal.charCodeAt(0)>=0) { g = ginputVal.charCodeAt(0); }
+
+			if (binputVal.charCodeAt(0)>=0) { b = binputVal.charCodeAt(0); }
+
+			bg();
+			values();
+		});
+
+		$('.container').mousemove(function(event) {
+			x = event.pageX-32;
+			y = event.pageY-32;
+			xpercent = x/w;
+			ypercent = y/h;
+
+			if (xpercent>=0 && xpercent<=0.15) { xr = 255; xg = parseInt(xpercent*256/0.15); xb = 0; }
+			else if (xpercent>0.15 && xpercent<=0.3) { xr = parseInt(510-(xpercent*255/0.15)); xg = 255; xb = 0; }
+			else if (xpercent>0.3 && xpercent<=0.5) { xr = 0; xg = 255; xb = parseInt(xpercent*255/0.2)-382; }
+			else if (xpercent>0.5 && xpercent<=0.7) { xr = 0; xg = parseInt(893-(xpercent*255/0.2)); xb = 255; }
+			else if (xpercent>0.7 && xpercent<=0.85) { xr = parseInt(xpercent*255/0.15)-1191; xg = 0; xb = 255; }
+			else if (xpercent>0.85 && xpercent<=1) { xr = 255; xg = 0; xb = parseInt(1701-(xpercent*255/0.15)); }
+
+			if (ypercent>=0 && ypercent<0.5) { 
+				yr = parseInt((0.5-ypercent)*(255-xr)/0.5);
+				yg = parseInt((0.5-ypercent)*(255-xg)/0.5);
+				yb = parseInt((0.5-ypercent)*(255-xb)/0.5);
+				saturation = parseInt(ypercent*101/0.5);
+				brightness = 100;
+				$acsii.removeClass('acsiiwhite');
+				$('.rgb').css({'color': 'black', 'font-weight': 'bold'}).removeClass('rgbwhite');
+			}
+			else if (ypercent>0.5 && ypercent<=1) { 
+				yr = parseInt((0.5-ypercent)*xr/0.5);
+				yg = parseInt((0.5-ypercent)*xg/0.5);
+				yb = parseInt((0.5-ypercent)*xb/0.5);
+				saturation = 100;
+				brightness = parseInt(200-(ypercent*100/0.5))
+				$acsii.addClass('acsiiwhite');
+				$('.rgb').css({'color': 'white', 'font-weight': 'normal'}).addClass('rgbwhite');
+			}
+			if (ypercent==0.5) {
+				saturation = 100;
+				brightness = 100;
+			}
+
+			r = xr+yr;
+			g = xg+yg;
+			b = xb+yb;
+
+			if (yr>=0) { yrnum = '+'+yr; } else { yrnum = yr; } // Changer "-" ici
+			if (yg>=0) { ygnum = '+'+yg; } else { ygnum = yg; } //
+			if (yb>=0) { ybnum = '+'+yb; } else { ybnum = yb; } //
+
+			bg();
+			$('.values').html('R:'+r+'<br>G:'+g+'<br>B:'+b)
+			$('.rgb').html('R:'+r+'<br>G:'+g+'<br>B:'+b).css({'top': y, 'left': x}).css('background-color','rgba('+r+','+g+','+b+',0.7)');
+			$('.xrgb').html('R+'+xr+'<br>G+'+xg+'<br>B+'+xb).css('left', x);
+			$('.yrgb').html('R'+yrnum+'<br>G'+ygnum+'<br>B'+ybnum).css('top', y);
+			$('.hue').html('H:'+parseInt(xpercent*361)).css('left', x);
+			$('.bs').html('S:'+saturation+'<br>B:'+brightness).css('top', y);
+
+			if (r==0) { 
+				$('.rvalue').html('&#'+r+1+';<span class="htmlvalue" style="border-color:rgb('+r+',0,0)">HTML = &amp;#'+r+';</span>');
+			} else {
+				$('.rvalue').html('&#'+r+';<span class="htmlvalue" style="border-color:rgb('+r+',0,0)">HTML = &amp;#'+r+';</span>');
+			}
+
+			if (g==0) { 
+				$('.gvalue').html('&#'+g+1+';<span class="htmlvalue" style="border-color:rgb(0,'+g+',0)">HTML = &amp;#'+g+';</span>');
+			} else {
+				$('.gvalue').html('&#'+g+';<span class="htmlvalue" style="border-color:rgb(0,'+g+',0)">HTML = &amp;#'+g+';</span>');
+			}
+
+			if (b==0) {
+				$('.bvalue').html('&#'+b+1+';<span class="htmlvalue" style="border-color:rgb(0,0,'+b+')">HTML = &amp;#'+b+';</span>');
+			} else {
+				$('.bvalue').html('&#'+b+';<span class="htmlvalue" style="border-color:rgb(0,0,'+b+')">HTML = &amp;#'+b+';</span>');	
+			}
+
+			/*
+			font squirrel no desktop use
+			if ipad
+			portrait / landscape acsii en colonne
+			replace "-" by "–"
+			values next to reload : 27px instead of 25
+			about page
+			select type face menu
+			type characters
+			bg color transition on reload
+			*/
+		});
+	</script>
+</html>
