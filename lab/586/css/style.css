@@ -40,18 +40,34 @@ h1 {
 
 .diagram img {
 	position: absolute;
-	width: 100px;
+	max-width: 100px;
+	width: 20%;
+	
+}
+
+.diagram.at_100 .oliv {
+	margin-left: -100px;
+}
+
+.diagram.at_100 .trails {
+	padding-right: 50px;
 }
 
 .trails {
 	position: absolute;
-	height: 60%;
-	width: 100px;
+	top: 50%;
+	padding-right: 150px;
+	box-sizing: border-box;
+}
+
+.trails div {
+	width: 100%;
 	border-bottom: dotted 2px #00B392;
 }
 
 .oliv {
 	left: 0;
+	margin-left: -200px;
 }
 
 .kathi {
@@ -85,4 +101,30 @@ h1 {
 	font-size: 11px;
 	font-weight: 400;
 	text-transform: uppercase;	
+}
+
+@media(max-width: 600px) {
+	.table-cell {
+		padding: 0 8px;
+	}
+	.diagram img {
+		width: 20%;
+		top: 50%;
+		margin-top: -10%;
+	}
+	#clockdiv {
+		font-size: 1em !important;
+	}
+	.diagram.at_100 .oliv {
+		margin-left: -20%;
+	}
+	.oliv {
+		margin-left: -40%;
+	}
+	.diagram.at_100 .trails {
+		padding-right: 10%;
+	}
+	.trails {
+		padding-right: 30%;
+	}
 }

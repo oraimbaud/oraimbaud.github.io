@@ -1,0 +1,315 @@
+body {
+	margin: 0;
+	background: rgb(240,240,240);
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+@font-face {
+    font-family: 'descartesmedium';
+    src: url('descartesbold-v20-webfont.eot');
+    src: url('descartesbold-v20-webfont.eot?#iefix') format('embedded-opentype'),
+         url('descartesbold-v20-webfont.woff') format('woff'),
+         url('descartesbold-v20-webfont.ttf') format('truetype'),
+         url('descartesbold-v20-webfont.svg#descartesmedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.picker {
+	display: none;
+	pointer-events: none;
+	z-index: 9999;
+}
+
+.picker, .infosbar, .htmlvalue {
+	font-family: "Courier New";
+	font-weight: bold;
+	font-size: 9px;
+	line-height: 9px;
+	position: absolute;
+}
+
+.infosbar {
+	width: 100%;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.bottom-bar {
+	bottom: 10px;
+}
+
+.top-bar {
+	top: 4px;
+}
+
+.top-bar .infos {
+	width: 104px;
+	float: right;
+}
+
+.reload {
+	position: relative;
+	top: 9px;
+}
+
+.values {
+	width: 25px;
+	float: right;
+	letter-spacing: 0;
+	pointer-events: none;
+}
+
+.infos {
+	margin: 0 32px;
+}
+
+.infos a {
+	color: black;
+}
+
+.download, .instructions {
+	float: left;
+}
+
+.download, .about {
+	width: 20%;
+}
+
+.instructions {
+	width: 60%;
+	pointer-events: none;
+	text-align: center;
+}
+
+@media (max-width: 1015px) {
+	.instructions {
+		display: none;
+	}
+	.download, .about {
+		width: 50%;
+	}
+}
+
+.about {
+	text-align: right;
+	float: right;
+}
+
+.rgb {
+	margin: 35px 0 0 34px;
+	padding: 2px;
+	width: 25px;
+	height: 25px;
+	z-index: 99999;
+}
+
+.rgb:before, .rgb:after {
+	content: "";
+	position: absolute;
+	background: black;
+}
+
+.rgbwhite:before, .rgbwhite:after {
+	background: white;
+}
+
+.rgb:before {
+	top: -7px;
+	left: -2px;
+	width: 1px;
+	height: 9px;
+}
+
+.rgb:after {
+	top: -3px;
+	left: -6px;
+	width: 9px;
+	height: 1px;
+}
+
+.xrgb {
+	margin-left: 36px;
+	bottom: 1px;
+	left: 0;
+}
+
+.xrgb:before {
+	content: "";
+	position: absolute;
+	top: -9px;
+	left: -4px;
+	background: black;
+	width: 1px;
+	height: 9px;
+}
+
+.yrgb {
+	width: 25px;
+	margin-top: 37px;
+	left: 3px;
+	top: 0;
+}
+
+.yrgb:after {
+	content: "";
+	position: absolute;
+	top: -5px;
+	right: -9px;
+	background: black;
+	width: 9px;
+	height: 1px;
+}
+
+.hue {
+	margin-left: 36px;
+	top: 13px;
+	left: 0;
+	padding-bottom: 7px;
+}
+
+.hue:before {
+	content: "";
+	position: absolute;
+	bottom: -8px;
+	left: -4px;
+	background: black;
+	width: 1px;
+	height: 9px;
+}
+
+.bs {
+	width: 25px;
+	margin-top: 37px;
+	right: 4px;
+	top: 0;
+}
+
+.bs:before {
+	content: "";
+	position: absolute;
+	top: -5px;
+	left: -8px;
+	background: black;
+	width: 9px;
+	height: 1px;
+}
+
+.container {
+	margin: 32px;
+}
+
+.markers {
+	display: none;
+	position: relative;
+}
+
+.center {
+	top: 50%;
+}
+
+.bottom {
+	top: 100%;
+}
+
+.bottom .marker {
+	margin-top: -5px !important;
+}
+
+.marker {
+	width: 9px;
+	height: 9px;
+	margin-top: -4px;
+	margin-left: -4px;
+	position: absolute;
+	z-index: 999;
+	pointer-events: none;
+}
+
+.marker:before, .marker:after {
+	content: "";
+	position: absolute;
+	z-index: -1;
+}
+
+.marker:before {
+	left: 4px;
+	width: 1px;
+	height: 100%;
+}
+
+.marker:after {
+	top: 4px;
+	height: 1px;
+	width: 100%;
+}
+
+.white:before, .white:after {
+	background: white;
+}
+
+.black:before, .black:after {
+	background: black;
+}
+
+.red:before, .red:after {
+	background: red;
+}
+
+.yellow:before, .yellow:after {
+	background: yellow;
+}
+
+.green:before, .green:after {
+	background: rgb(0,255,0);
+}
+
+.cyan:before, .cyan:after {
+	background: cyan;
+}
+
+.blue:before, .blue:after {
+	background: blue;
+}
+
+.purple:before, .purple:after {
+	background: rgb(255,0,255);
+}
+
+.bg {
+	cursor: none;
+	position: relative;
+}
+
+.acsii {
+	font-family: "descartesmedium";
+	position: absolute;
+	text-align: center;
+	pointer-events: none;
+}
+
+.htmlvalue {
+	position: absolute;
+	border-bottom: dotted 1px;
+	bottom: -50px;
+	right: 50%;
+	margin-right: -35px;
+	letter-spacing: 0.05em;
+}
+
+.acsiiwhite {
+	color: white;
+}
+
+.acsiiwhite .htmlvalue {
+	font-weight: normal;
+}
+
+.rgb, .acsii {
+  transition: color 300ms;
+}
