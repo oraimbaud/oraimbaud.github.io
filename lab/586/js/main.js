@@ -6,9 +6,9 @@ $(document).ready(function() {
   var a_m;
   var a_s;
 
-  var d_d = 24;
-  var d_h = 21 + d_d * 24;
-  var d_m = 40 + d_h * 60;
+  var d_d = 22;
+  var d_h = 18 + d_d * 24;
+  var d_m = 00 + d_h * 60;
   var d_s = 0 + d_m * 60;
 
   function timer() {

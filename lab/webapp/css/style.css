@@ -1,0 +1,139 @@
+/** Global Style ***************************************************************************/
+
+html { -webkit-text-size-adjust: 100%; }
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td { margin: 0; padding: 0; }
+table { border-collapse: collapse; border-spacing: 0; }
+fieldset, img { border: 0; }
+address, caption, cite, code, dfn, var { font-style: normal; font-weight: normal; }
+ol, ul { list-style: none; }
+caption, th { text-align: left; }
+h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: normal; }
+img { vertical-align: middle; }
+* { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+*:before, *:after { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+body, button, input, select, textarea {
+    background-color: white;
+    color: black;
+    font-family: Arial, Verdana, sans-serif;
+    font-size: 13px;
+    line-height: 16px;
+}
+
+a { color: black; }
+a:hover { text-decoration: none; color: blue; }
+a:focus { text-decoration: none; color: black; }
+
+::selection { background-color: black; color: white; }
+::-moz-selection { background: black; color: white; text-shadow: white; }
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-thumb { background-color: rgba(190, 190, 190, 0.5) }
+
+/*** Global Classes ********************************/
+
+.clear { clear: both; }
+.clearfix::before,
+.clearfix::after { content: " "; display: table; }
+.clearfix::after { clear: both; }
+
+.table { display: table; }
+.table-cell { display: table-cell; vertical-align: middle; }
+
+.wide, .w-wide { width: 100%; }
+.wide, .h-wide { height: 100%; }
+
+.rel { position: relative; }
+.abs { position: absolute; }
+.fix { position: fixed; }
+
+.hidden { display: none; }
+.visible { display: block; opacity: 1; }
+.invisible { opacity: 0; pointer-events: none; }
+
+/********************************* Global Classes **/
+
+/*************************************************************************** Global Style **/
+
+/** Indexes ****************************************/
+
+.i-9 { z-index: 999999999; }
+.i-8 { z-index: 99999999; }
+.i-7 { z-index: 9999999; }
+.i-6 { z-index: 999999; }
+.i-5 { z-index: 99999; }
+.i-4 { z-index: 9999; }
+.i-3 { z-index: 999; }
+.i-2 { z-index: 99; }
+.i-1 { z-index: 9; }
+.i-0 { z-index: -1; }
+
+/**************************************** Indexes **/
+
+/** Content ********************************************************************************/
+
+/** Navigation *************************************/
+
+.menu-top,
+.menu-bottom {
+  background-color: red;
+}
+
+.menu-top {
+  height: 70px;
+  padding-top: 20px;
+}
+
+.menu-bottom {
+  bottom: 0;
+  height: 50px;
+}
+
+/************************************* Navigation **/
+
+.content {
+  padding: 55px 20px;
+}
+
+.content p {
+  margin: 15px 0;
+}
+
+/** About ******************************************/
+
+
+
+/****************************************** About **/
+
+/******************************************************************************** Content **/
+
+/** Transitions ****************************************************************************/
+
+.t {
+    -webkit-transition: all 300ms ease-in-out;
+    -moz-transition: all 300ms ease-in-out;
+    -o-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+}
+
+/**************************************************************************** Transitions **/
+
+/** Media Queries **************************************************************************/
+
+@media (max-width: 767px) {
+
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+
+}
+
+@media (min-width: 1280px) {
+
+}
+
+/************************************************************************** Media Queries **/
