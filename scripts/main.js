@@ -102,8 +102,8 @@ $(document).ready(function() {
 		o = true;
         $('.slideshow-container').addClass('draggable');
 		$('.infos-container.closed').removeClass('closed').addClass('opened').animate({
-			width: 50+'%'
-		}, 200, function() {
+			width: 100+'%'
+		}, 300, function() {
 			o = false;
 		});
 		return false;

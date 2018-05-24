@@ -4,6 +4,16 @@
 	box-sizing: border-box;
 }
 
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-size: 20px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
 html,
 body,
 .infos-container,
@@ -24,6 +34,20 @@ a:not(.contact-link)::after {
 	width: 100%;
 }
 
+.span100 span {
+    font-size: 90%;
+    font-weight: 800;
+}
+
+.span100 span a {
+    text-decoration: underline;
+    letter-spacing: -0.01em;
+}
+
+.span100 span a:hover {
+    text-decoration: none;
+}
+
 html,
 body,
 .infos-container,
@@ -41,33 +65,8 @@ li.ss-link span {
 	height: 100%;
 }
 
-@font-face {
-    font-family: 'ul';
-    src: url('../content/ul-webfont.eot');
-    src: url('../content/ul-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../content/ul-webfont.woff2') format('woff2'),
-         url('../content/ul-webfont.woff') format('woff'),
-         url('../content/ul-webfont.ttf') format('truetype'),
-         url('../content/ul-webfont.svg#ulregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'ur';
-    src: url('../content/ur-webfont.eot');
-    src: url('../content/ur-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../content/ur-webfont.woff2') format('woff2'),
-         url('../content/ur-webfont.woff') format('woff'),
-         url('../content/ur-webfont.ttf') format('truetype'),
-         url('../content/ur-webfont.svg#urregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
 body {
 	margin: 0;
-	font-family: 'ul', sans-serif;
 	letter-spacing: 0.01em;
 	-webkit-font-smoothing: antialiased;
 }
@@ -77,7 +76,7 @@ body, input, textarea, h1, h2, h3, h4, p, ul {
 	padding: 0;
 }
 
-h1, h2, h3, h4 { font-size: 100%; font-weight: normal; }
+h1, h2, h3, h4 { font-weight: 900; line-height: 1; }
 
 ul { list-style: none; }
 
@@ -108,7 +107,6 @@ a:not(.contact-link)::after {
 	left: 0;
 	bottom: 6%;
 	height: 9%;
-	background: url(../content/dot.svg) 0 50% repeat-x;
 	background-size: auto 50%;
 }
 
@@ -204,7 +202,7 @@ a:not(.contact-link):hover::after {
 }
 
 [class*="-wrap"] {
-	width: 50%;
+	width: 100%;
 	height: 100%;
 }
 
@@ -308,7 +306,6 @@ ul.pj-tags, ul.pj-tags li, .infos-contact a {
 }
 
 ul.pj-tags {
-	font-family: 'UR', sans-serif;
 	text-transform: uppercase;
 	border-left-style: solid;
 }
@@ -340,7 +337,6 @@ li.ss-link span {
 }
 
 .infos-contact {
-	font-family: 'UR', sans-serif;
 	right: 51.7%;
 }
 
