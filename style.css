@@ -247,12 +247,12 @@ a[target]::after {
 
   .clock__index--hour>div::before,
   .clock__index--hour>div::after {
-    font-size: 8vw;
+    font-size: 7.6923077vw;
   }
 
   .clock__index--min>div::before,
   .clock__index--min>div::after {
-    font-size: 4vw;
+    font-size: 3.8461538vw;
   }
 }
 
