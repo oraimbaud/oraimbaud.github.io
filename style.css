@@ -4,6 +4,8 @@ html {
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
   line-height: 1.4;
   margin: 0 auto;
   display: grid;
@@ -15,6 +17,7 @@ body {
   min-height: 100vh;
   box-sizing: border-box;
 }
+
 
 h1,
 h2,
@@ -114,10 +117,6 @@ a[target]::after {
   animation: hand 86400s linear infinite;
 }
 
-.clock__hour .clock__init {
-  /* transform: rotate(300deg); */
-}
-
 .clock__hour .clock__hand {
   height: 25%;
   margin-top: -25%;
@@ -127,21 +126,21 @@ a[target]::after {
   animation: hand 3600s linear infinite;
 }
 
-.clock__min .clock__init {
-  /* transform: rotate(60deg); */
-}
-
 .clock__min .clock__hand {
   height: 37%;
   margin-top: -37%
 }
 
-.clock__sec {
-  animation: hand 60s linear infinite;
+.clock__sec,
+.clock__axis {
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.clock__sec .clock__init {
-  /* transform: rotate(180deg); */
+.clock__sec {
+  animation: hand 60s linear infinite;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23ff3000'/%3E%3C/svg%3E");
+  background-size: 6%;
 }
 
 .clock__sec .clock__hand {
@@ -151,28 +150,9 @@ a[target]::after {
   margin-top: -38%;
 }
 
-.clock__axis .clock__center {
-  position: relative;
-  border-radius: 100%;
-  width: 5%;
-  height: 0;
-  padding-bottom: 5%;
-  overflow: hidden;
-}
-
-.clock__axis .clock__center::after {
-  content: "";
-  position: absolute;
-  background-color: #222;
-  width: 3px;
-  height: 3px;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  margin: auto;
-  border-radius: 100%;
-  box-shadow: 0 0 0 50px #ff3000;
+.clock__axis {
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23000'/%3E%3C/svg%3E");
+  background-size: 5px;
 }
 
 .clock__index>div {
@@ -245,10 +225,10 @@ a[target]::after {
 
 .clock__index--number>div::before,
 .clock__index--number>div::after {
-  width: 40px;
-  margin-left: -20px;
+  width: 60px;
+  margin-left: -30px;
   text-align: center;
-  color: #333;
+  color: #222;
 }
 
 .clock__index--hour>div::before,
@@ -272,7 +252,7 @@ a[target]::after {
 
   .clock__index--min>div::before,
   .clock__index--min>div::after {
-    font-size: 3.5vw;
+    font-size: 4vw;
   }
 }
 
@@ -429,9 +409,6 @@ a[target]::after {
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #000;
-  }
-
-  body {
     color: #ddd;
   }
 
