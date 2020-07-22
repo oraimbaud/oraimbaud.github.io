@@ -52,7 +52,9 @@ a:hover {
 }
 
 a[target]::after {
-  content: "\202F↗";
+  content: "\00a0↗";
+  font-style: normal;
+  margin-left: -0.1em;
 }
 
 dl {
