@@ -1,5 +1,9 @@
+import view from './view.html';
+import style from './style.css';
+
 export default class Clock {
   constructor() {
+    this.render();
     this.secHand = document.getElementById('secHand');
     this.minHand = document.getElementById('minHand');
     this.hourHand = document.getElementById('hourHand');
@@ -10,6 +14,10 @@ export default class Clock {
       m: date.getMinutes(),
       h: date.getHours(),
     }
+  }
+
+  render() {
+    document.getElementById('clock').innerHTML = view;
   }
 
   init() {

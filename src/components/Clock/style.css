@@ -203,6 +203,7 @@
   .clock__index--min>div::after {
     font-size: 3.8461538vw;
   }
+
 }
 
 .clock__index--hour>div::before {
@@ -376,4 +377,5 @@
   .clock__index--number>div::after {
     color: #f6f6f6;
   }
+
 }
