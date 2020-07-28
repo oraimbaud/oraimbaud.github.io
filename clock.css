@@ -1,0 +1,331 @@
+.clock {
+  width: 230px;
+  height: 230px;
+  margin-left: 0;
+  margin-right: 0;
+  position: relative;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.clock__case {
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 100%;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+}
+
+.clock__case>*,
+.clock__case>*>* {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.clock__case>*>* {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes hand {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.clock__hand {
+  width: 2px;
+}
+
+.clock__hour .clock__hand,
+.clock__min .clock__hand {
+  background-color: #000;
+}
+
+.clock__hour {
+  animation: hand 86400s linear infinite;
+}
+
+.clock__hour .clock__hand {
+  height: 25%;
+  margin-top: -25%;
+}
+
+.clock__min {
+  animation: hand 3600s linear infinite;
+}
+
+.clock__min .clock__hand {
+  height: 37%;
+  margin-top: -37%
+}
+
+.clock__sec,
+.clock__axis {
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.clock__sec {
+  animation: hand 60s linear infinite;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23ff3000'/%3E%3C/svg%3E");
+  background-size: 6%;
+}
+
+.clock__sec .clock__hand {
+  background-color: #ff3000;
+  height: 55%;
+  margin-top: -38%;
+}
+
+.clock__axis {
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23000'/%3E%3C/svg%3E");
+  background-size: 4px;
+}
+
+.clock__index>div {
+  position: relative;
+  height: 100%;
+}
+
+.clock__index>div::before,
+.clock__index>div::after {
+  position: absolute;
+}
+
+.clock__index--marker>div::before,
+.clock__index--marker>div::after {
+  content: "";
+  background-color: #444;
+  width: 1px;
+  height: 2.7%;
+  left: 0;
+}
+
+.clock__index--marker>div::before {
+  top: 0;
+}
+
+.clock__index--marker>div::after {
+  bottom: 0;
+}
+
+.clock__index--marker.clock__index--each1>div::before,
+.clock__index--marker.clock__index--each1>div::after {
+  background-color: #aaa;
+}
+
+.clock__index>div:nth-child(2) {
+  transform: rotate(30deg);
+}
+
+.clock__index>div:nth-child(3) {
+  transform: rotate(60deg);
+}
+
+.clock__index>div:nth-child(4) {
+  transform: rotate(90deg);
+}
+
+.clock__index>div:nth-child(5) {
+  transform: rotate(120deg);
+}
+
+.clock__index>div:nth-child(6) {
+  transform: rotate(150deg);
+}
+
+.clock__index:nth-child(2) {
+  transform: rotate(6deg);
+}
+
+.clock__index:nth-child(3) {
+  transform: rotate(12deg);
+}
+
+.clock__index:nth-child(4) {
+  transform: rotate(18deg);
+}
+
+.clock__index:nth-child(5) {
+  transform: rotate(24deg);
+}
+
+.clock__index--number>div::before,
+.clock__index--number>div::after {
+  width: 60px;
+  margin-left: -30px;
+  text-align: center;
+  color: #222;
+}
+
+.clock__index--hour>div::before,
+.clock__index--hour>div::after {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+.clock__index--min>div::before,
+.clock__index--min>div::after {
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.clock__index--hour>div::before {
+  top: 10%;
+}
+
+.clock__index--hour>div::after {
+  bottom: 10%;
+}
+
+.clock__index--min>div::before {
+  top: 5%;
+}
+
+.clock__index--min>div::after {
+  bottom: 5%;
+}
+
+.clock__index--hour>div:first-child::before {
+  content: "12";
+}
+
+.clock__index--hour>div:first-child::after {
+  content: "6";
+}
+
+.clock__index--min>div:first-child::before {
+  content: "0";
+}
+
+.clock__index--min>div:first-child::after {
+  content: "30";
+}
+
+.clock__index--number>div:nth-child(2)::before,
+.clock__index--number>div:nth-child(2)::after {
+  transform: rotate(-30deg);
+}
+
+.clock__index--hour>div:nth-child(2)::before {
+  content: "1";
+}
+
+.clock__index--hour>div:nth-child(2)::after {
+  content: "7";
+}
+
+.clock__index--min>div:nth-child(2)::before {
+  content: "5";
+}
+
+.clock__index--min>div:nth-child(2)::after {
+  content: "35";
+}
+
+.clock__index--number>div:nth-child(3)::before,
+.clock__index--number>div:nth-child(3)::after {
+  transform: rotate(-60deg);
+}
+
+.clock__index--hour>div:nth-child(3)::before {
+  content: "2";
+}
+
+.clock__index--hour>div:nth-child(3)::after {
+  content: "8";
+}
+
+.clock__index--min>div:nth-child(3)::before {
+  content: "10";
+}
+
+.clock__index--min>div:nth-child(3)::after {
+  content: "40";
+}
+
+.clock__index--number>div:nth-child(4)::before,
+.clock__index--number>div:nth-child(4)::after {
+  transform: rotate(-90deg);
+}
+
+.clock__index--hour>div:nth-child(4)::before {
+  content: "3";
+}
+
+.clock__index--hour>div:nth-child(4)::after {
+  content: "9";
+}
+
+.clock__index--min>div:nth-child(4)::before {
+  content: "15";
+}
+
+.clock__index--min>div:nth-child(4)::after {
+  content: "45";
+}
+
+.clock__index--number>div:nth-child(5)::before,
+.clock__index--number>div:nth-child(5)::after {
+  transform: rotate(-120deg);
+}
+
+.clock__index--hour>div:nth-child(5)::before {
+  content: "4";
+}
+
+.clock__index--hour>div:nth-child(5)::after {
+  content: "10";
+}
+
+.clock__index--min>div:nth-child(5)::before {
+  content: "20";
+}
+
+.clock__index--min>div:nth-child(5)::after {
+  content: "50";
+}
+
+.clock__index--number>div:nth-child(6)::before,
+.clock__index--number>div:nth-child(6)::after {
+  transform: rotate(-150deg);
+}
+
+.clock__index--hour>div:nth-child(6)::before {
+  content: "5";
+}
+
+.clock__index--hour>div:nth-child(6)::after {
+  content: "11";
+}
+
+.clock__index--min>div:nth-child(6)::before {
+  content: "25";
+}
+
+.clock__index--min>div:nth-child(6)::after {
+  content: "55";
+}
+
+.clock figcaption {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
