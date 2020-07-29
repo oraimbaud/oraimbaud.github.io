@@ -8,7 +8,7 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: path.resolve(__dirname, 'docs'),
+    contentBase: path.resolve(__dirname, 'dist'),
     port: port
   },
   plugins: [
