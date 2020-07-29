@@ -1,20 +1,18 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const HtmlInlineCSSWebpackPlugin = require("html-inline-css-webpack-plugin").default;
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: './src/index.js',
+    main: './src/index.js',
   },
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html'
-    }),
-    new HtmlInlineCSSWebpackPlugin()
+    })
   ],
   module: {
     rules: [
@@ -51,7 +49,7 @@ module.exports = {
     ],
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'docs'),
     filename: '[name].js'
   },
 }

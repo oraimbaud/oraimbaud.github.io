@@ -1,5 +1,4 @@
-import Clock from './components/Clock';
-import style from './style.css';
+// import Clock from './components/Clock';
 
-const clock = new Clock();
-clock.init();
+// const clock = new Clock();
+// clock.init();
