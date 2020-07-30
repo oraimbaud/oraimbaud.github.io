@@ -14,9 +14,9 @@ module.exports = merge(common, {
   plugins: [
     new BrowserSyncWebpackPlugin(
       {
+        proxy: `http://localhost:${port}/`,
         host: 'localhost',
         port: 3000,
-        proxy: `http://localhost:${port}/`,
         notify: false,
         open: false
       },
