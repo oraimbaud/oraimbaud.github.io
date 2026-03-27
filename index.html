@@ -11,11 +11,24 @@
     h1 {
       margin-top: 0
     }
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: black;
+        color: #ddd;
+      }
+      a {
+        color: #6af;
+      }
+      a:visited {
+        color: #aaf;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <h1>Olivier Raimbaud</h1>
+  <h1 style="margin-bottom: 0">Olivier Raimbaud</h1>
+  <hr>
   <p>
     I’m a graphic designer, type designer, and front-end web developer.<br>
     I also enjoy drawing.
